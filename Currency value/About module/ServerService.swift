@@ -14,7 +14,7 @@ protocol ServerServiceProtocol: class {
 
 class ServerService: ServerServiceProtocol {
     var urlRatesSource: String {
-        return "https://free.currencyconverterapi.com"
+        return "https://newsapi.org/"
     }
     
     func openUrl(with urlString: String?) {

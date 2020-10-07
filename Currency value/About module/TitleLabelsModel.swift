@@ -9,16 +9,15 @@ import Foundation
 
 protocol TitleLabelsModelProtocol: class {
     var descriptionTitle: String {get}
-    var thanksTitle: String {get
-    }
+    var thanksTitle: String {get}
 }
 
 class TitleLabelModel: TitleLabelsModelProtocol {
     var descriptionTitle: String {
-        return "This is a free currency converter"
+        return "This is a free news getter"
     }
     
     var thanksTitle: String {
-        return "Special thanks for currency rates to"
+        return "Special thanks for news to"
     }
 }
