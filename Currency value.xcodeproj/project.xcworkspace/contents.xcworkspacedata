@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:">
+      location = "self:/Users/stanislavslipchenko/swift/My_apps/Currency-value-VIPER-/Currency value.xcodeproj">
    </FileRef>
 </Workspace>

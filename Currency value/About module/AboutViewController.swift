@@ -22,6 +22,13 @@ class AboutViewController: UIViewController, AboutViewProtocol {
     var presenter: AboutPresenterProtocol!
     var configurator: AboutConfiguratorProtocol = AboutConfigurator()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        configurator.configure(with: self)
+        presenter.configureView()
+    }
+    
     @IBAction func closeButtonClicked(_ sender: UIBarButtonItem) {
         presenter.closeButtonClicked()
     }
@@ -39,13 +46,5 @@ class AboutViewController: UIViewController, AboutViewProtocol {
     
     func setThanksForLabel(with title: String) {
         thanksForLabel.text = title
-    }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        configurator.configure(with: self)
-        presenter.configureView()
     }
 }
