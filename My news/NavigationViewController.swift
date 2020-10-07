@@ -1,6 +1,6 @@
 //
 //  NavigationViewController.swift
-//  Currency value
+//  My news
 //
 //  Created by Stanislav Slipchenko on 08.10.2020.
 //

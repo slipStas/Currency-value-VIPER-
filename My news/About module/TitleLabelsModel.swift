@@ -1,6 +1,6 @@
 //
 //  TitleLabelsModel.swift
-//  Currency value
+//  My news
 //
 //  Created by Stanislav Slipchenko on 07.10.2020.
 //

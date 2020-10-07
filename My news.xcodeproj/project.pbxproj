@@ -28,7 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8E650EC7252DCCB4001CE933 /* Currency value.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Currency value.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E650EC7252DCCB4001CE933 /* My news.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My news.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E650ECA252DCCB4001CE933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E650ECC252DCCB4001CE933 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8E650ED1252DCCB4001CE933 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -64,7 +64,7 @@
 		8E650EBE252DCCB4001CE933 = {
 			isa = PBXGroup;
 			children = (
-				8E650EC9252DCCB4001CE933 /* Currency value */,
+				8E650EC9252DCCB4001CE933 /* My news */,
 				8E650EC8252DCCB4001CE933 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,12 +72,12 @@
 		8E650EC8252DCCB4001CE933 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8E650EC7252DCCB4001CE933 /* Currency value.app */,
+				8E650EC7252DCCB4001CE933 /* My news.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8E650EC9252DCCB4001CE933 /* Currency value */ = {
+		8E650EC9252DCCB4001CE933 /* My news */ = {
 			isa = PBXGroup;
 			children = (
 				8E650ECA252DCCB4001CE933 /* AppDelegate.swift */,
@@ -90,7 +90,7 @@
 				8E650EF8252E36AC001CE933 /* Main module */,
 				8E650EE5252DCE3F001CE933 /* About module */,
 			);
-			path = "Currency value";
+			path = "My news";
 			sourceTree = "<group>";
 		};
 		8E650EE5252DCE3F001CE933 /* About module */ = {
@@ -122,9 +122,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8E650EC6252DCCB4001CE933 /* Currency value */ = {
+		8E650EC6252DCCB4001CE933 /* My news */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8E650EDB252DCCB9001CE933 /* Build configuration list for PBXNativeTarget "Currency value" */;
+			buildConfigurationList = 8E650EDB252DCCB9001CE933 /* Build configuration list for PBXNativeTarget "My news" */;
 			buildPhases = (
 				8E650EC3252DCCB4001CE933 /* Sources */,
 				8E650EC4252DCCB4001CE933 /* Frameworks */,
@@ -134,9 +134,9 @@
 			);
 			dependencies = (
 			);
-			name = "Currency value";
+			name = "My news";
 			productName = "Currency value";
-			productReference = 8E650EC7252DCCB4001CE933 /* Currency value.app */;
+			productReference = 8E650EC7252DCCB4001CE933 /* My news.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -153,7 +153,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8E650EC2252DCCB4001CE933 /* Build configuration list for PBXProject "Currency value" */;
+			buildConfigurationList = 8E650EC2252DCCB4001CE933 /* Build configuration list for PBXProject "My news" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -166,7 +166,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8E650EC6252DCCB4001CE933 /* Currency value */,
+				8E650EC6252DCCB4001CE933 /* My news */,
 			);
 		};
 /* End PBXProject section */
@@ -352,12 +352,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GAPK9VY2U9;
-				INFOPLIST_FILE = "Currency value/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/My news/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ru.kaopu.Currency-value";
+				PRODUCT_BUNDLE_IDENTIFIER = "ru.kaopu.My-news";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -371,12 +371,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GAPK9VY2U9;
-				INFOPLIST_FILE = "Currency value/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/My news/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ru.kaopu.Currency-value";
+				PRODUCT_BUNDLE_IDENTIFIER = "ru.kaopu.My-news";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -386,7 +386,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8E650EC2252DCCB4001CE933 /* Build configuration list for PBXProject "Currency value" */ = {
+		8E650EC2252DCCB4001CE933 /* Build configuration list for PBXProject "My news" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8E650ED9252DCCB9001CE933 /* Debug */,
@@ -395,7 +395,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8E650EDB252DCCB9001CE933 /* Build configuration list for PBXNativeTarget "Currency value" */ = {
+		8E650EDB252DCCB9001CE933 /* Build configuration list for PBXNativeTarget "My news" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8E650EDC252DCCB9001CE933 /* Debug */,
