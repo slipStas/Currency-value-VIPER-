@@ -27,7 +27,7 @@
 		8E650F0E252E697E001CE933 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E650F0D252E697E001CE933 /* NavigationViewController.swift */; };
 		8E650F1E25305D0D001CE933 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E650F1D25305D0D001CE933 /* MainTableViewCell.swift */; };
 		8E650F22253060F1001CE933 /* MainServerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E650F21253060F1001CE933 /* MainServerService.swift */; };
-		8E650F2525307163001CE933 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E650F2425307163001CE933 /* NewsModel.swift */; };
+		8E650F2525307163001CE933 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E650F2425307163001CE933 /* News.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,7 +53,7 @@
 		8E650F0D252E697E001CE933 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		8E650F1D25305D0D001CE933 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		8E650F21253060F1001CE933 /* MainServerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainServerService.swift; sourceTree = "<group>"; };
-		8E650F2425307163001CE933 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		8E650F2425307163001CE933 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +93,8 @@
 				8E650ED5252DCCB9001CE933 /* LaunchScreen.storyboard */,
 				8E650ED8252DCCB9001CE933 /* Info.plist */,
 				8E650F0D252E697E001CE933 /* NavigationViewController.swift */,
+				8E650F2D2530D00E001CE933 /* Services */,
+				8E650F2A2530CF11001CE933 /* Entities */,
 				8E650EF8252E36AC001CE933 /* Main module */,
 				8E650EE5252DCE3F001CE933 /* About module */,
 			);
@@ -107,7 +109,6 @@
 				8E650EED252DD2BE001CE933 /* AboutInteractor.swift */,
 				8E650EE2252DCD1F001CE933 /* AboutConfigurator.swift */,
 				8E650EEA252DD05B001CE933 /* AbouRouter.swift */,
-				8E650EF0252DDD40001CE933 /* AboutServerService.swift */,
 				8E650EF4252DEBE5001CE933 /* TitleLabelsModel.swift */,
 			);
 			path = "About module";
@@ -122,7 +123,6 @@
 				8E650EFF252E3725001CE933 /* MainInteractor.swift */,
 				8E650F02252E3737001CE933 /* MainConfigurator.swift */,
 				8E650F06252E3752001CE933 /* MainRouter.swift */,
-				8E650F21253060F1001CE933 /* MainServerService.swift */,
 			);
 			path = "Main module";
 			sourceTree = "<group>";
@@ -131,9 +131,25 @@
 			isa = PBXGroup;
 			children = (
 				8E650F1D25305D0D001CE933 /* MainTableViewCell.swift */,
-				8E650F2425307163001CE933 /* NewsModel.swift */,
 			);
 			path = "Main models";
+			sourceTree = "<group>";
+		};
+		8E650F2A2530CF11001CE933 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				8E650F2425307163001CE933 /* News.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		8E650F2D2530D00E001CE933 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8E650F21253060F1001CE933 /* MainServerService.swift */,
+				8E650EF0252DDD40001CE933 /* AboutServerService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,7 +234,7 @@
 				8E650EEE252DD2BE001CE933 /* AboutInteractor.swift in Sources */,
 				8E650F1E25305D0D001CE933 /* MainTableViewCell.swift in Sources */,
 				8E650ECD252DCCB4001CE933 /* SceneDelegate.swift in Sources */,
-				8E650F2525307163001CE933 /* NewsModel.swift in Sources */,
+				8E650F2525307163001CE933 /* News.swift in Sources */,
 				8E650EF1252DDD40001CE933 /* AboutServerService.swift in Sources */,
 				8E650EF5252DEBE5001CE933 /* TitleLabelsModel.swift in Sources */,
 				8E650F00252E3725001CE933 /* MainInteractor.swift in Sources */,

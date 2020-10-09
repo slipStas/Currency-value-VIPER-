@@ -1,17 +1,22 @@
 //
-//  NewsModel.swift
+//  News.swift
 //  My news
 //
 //  Created by Stanislav Slipchenko on 09.10.2020.
 
 import Foundation
 
-// MARK: - NewsModel
-class NewsModel: Codable {
+// MARK: - News
+class News: Codable {
     let status: String
     let totalResults: Int
     let articles: [Article]
-
+    
+    init(status: String, totalResults: Int, articles: [Article]) {
+        self.status = status
+        self.totalResults = totalResults
+        self.articles = articles
+    }
     
     required init(from decoder: Decoder) throws {
         let newsModel = try decoder.container(keyedBy: CodingKeys.self)

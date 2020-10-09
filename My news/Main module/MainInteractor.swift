@@ -8,7 +8,8 @@
 import Foundation
 
 protocol MainInteractorProtocol: class {
-    var news: NewsModel? {get}
+    var news: News {get}
+    var newsCount: Int {get}
     func loadNews()
 }
 
@@ -21,13 +22,19 @@ class MainInteractor: MainInteractorProtocol {
         self.presenter = presenter
     }
     
-    var news: NewsModel? {
+    var news: News {
         get {
-            return mainService.news
+            guard let news = mainService.news else {return News(status: "error", totalResults: 0, articles: [])}
+            return news
+        }
+    }
+    var newsCount: Int {
+        get {
+            return news.totalResults
         }
     }
     
     func loadNews() {
-        mainService.loadNews()
+        self.mainService.loadNews()
     }
 }

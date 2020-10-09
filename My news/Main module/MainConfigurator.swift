@@ -21,5 +21,6 @@ class MainConfigurator: MainConfiguratorProtocol {
         controller.presenter = presenter
         presenter.interactor = interactor
         presenter.router = router
+        
     }
 }

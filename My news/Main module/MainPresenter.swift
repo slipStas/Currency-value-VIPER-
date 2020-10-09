@@ -29,8 +29,13 @@ class MainPresenter: MainPresenterProtocol {
     }
     
     func configureView() {
-        interactor.loadNews()
+        DispatchQueue.main.async {
+            self.interactor.loadNews()
+            sleep(2)
+            
+            self.view.show(news: self.interactor.news)
+            self.view.reloadData()
+        }
     }
-    
-    
 }
+
