@@ -8,6 +8,7 @@
 import Foundation
 
 protocol MainInteractorProtocol: class {
+    var news: NewsModel? {get}
     func loadNews()
 }
 
@@ -18,6 +19,12 @@ class MainInteractor: MainInteractorProtocol {
     
     required init(presenter: MainPresenterProtocol) {
         self.presenter = presenter
+    }
+    
+    var news: NewsModel? {
+        get {
+            return mainService.news
+        }
     }
     
     func loadNews() {

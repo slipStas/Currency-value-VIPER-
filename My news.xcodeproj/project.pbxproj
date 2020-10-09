@@ -27,6 +27,7 @@
 		8E650F0E252E697E001CE933 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E650F0D252E697E001CE933 /* NavigationViewController.swift */; };
 		8E650F1E25305D0D001CE933 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E650F1D25305D0D001CE933 /* MainTableViewCell.swift */; };
 		8E650F22253060F1001CE933 /* MainServerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E650F21253060F1001CE933 /* MainServerService.swift */; };
+		8E650F2525307163001CE933 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E650F2425307163001CE933 /* NewsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		8E650F0D252E697E001CE933 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		8E650F1D25305D0D001CE933 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		8E650F21253060F1001CE933 /* MainServerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainServerService.swift; sourceTree = "<group>"; };
+		8E650F2425307163001CE933 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				8E650F1D25305D0D001CE933 /* MainTableViewCell.swift */,
+				8E650F2425307163001CE933 /* NewsModel.swift */,
 			);
 			path = "Main models";
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				8E650EEE252DD2BE001CE933 /* AboutInteractor.swift in Sources */,
 				8E650F1E25305D0D001CE933 /* MainTableViewCell.swift in Sources */,
 				8E650ECD252DCCB4001CE933 /* SceneDelegate.swift in Sources */,
+				8E650F2525307163001CE933 /* NewsModel.swift in Sources */,
 				8E650EF1252DDD40001CE933 /* AboutServerService.swift in Sources */,
 				8E650EF5252DEBE5001CE933 /* TitleLabelsModel.swift in Sources */,
 				8E650F00252E3725001CE933 /* MainInteractor.swift in Sources */,

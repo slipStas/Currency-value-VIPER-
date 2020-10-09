@@ -8,12 +8,14 @@
 import Foundation
 
 protocol MainServerServiceProtocol: class {
+    var news: NewsModel? {get set}
     func loadNews()
 }
 
 class MainServerService: MainServerServiceProtocol {
     
     let apiKey = "28d2250865c9496296dd09e61ef40ddc"
+    var news: NewsModel? 
     
     func loadNews() {
         let configurator = URLSessionConfiguration.default
@@ -32,9 +34,9 @@ class MainServerService: MainServerServiceProtocol {
         print(url)
         let task = session.dataTask(with: url) { (data, response, error) in
             guard let data = data else {return}
-            let json = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
             
-            print(json!)
+            let news = try? JSONDecoder().decode(NewsModel.self, from: data)
+            self.news = news
         }
         task.resume()
     }

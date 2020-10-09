@@ -15,7 +15,7 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var newsTableView: UITableView!
     
-    var presenter: MainPresenter!
+    var presenter: MainPresenterProtocol!
     var configurator: MainConfiguratorProtocol = MainConfigurator()
     
     override func viewDidLoad() {
