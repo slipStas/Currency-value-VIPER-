@@ -17,7 +17,7 @@
 		8E650EE8252DCE82001CE933 /* AboutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E650EE7252DCE82001CE933 /* AboutPresenter.swift */; };
 		8E650EEB252DD05B001CE933 /* AbouRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E650EEA252DD05B001CE933 /* AbouRouter.swift */; };
 		8E650EEE252DD2BE001CE933 /* AboutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E650EED252DD2BE001CE933 /* AboutInteractor.swift */; };
-		8E650EF1252DDD40001CE933 /* ServerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E650EF0252DDD40001CE933 /* ServerService.swift */; };
+		8E650EF1252DDD40001CE933 /* AboutServerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E650EF0252DDD40001CE933 /* AboutServerService.swift */; };
 		8E650EF5252DEBE5001CE933 /* TitleLabelsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E650EF4252DEBE5001CE933 /* TitleLabelsModel.swift */; };
 		8E650EFA252E3702001CE933 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E650EF9252E3702001CE933 /* MainViewController.swift */; };
 		8E650EFD252E3714001CE933 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E650EFC252E3714001CE933 /* MainPresenter.swift */; };
@@ -25,6 +25,8 @@
 		8E650F03252E3737001CE933 /* MainConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E650F02252E3737001CE933 /* MainConfigurator.swift */; };
 		8E650F07252E3752001CE933 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E650F06252E3752001CE933 /* MainRouter.swift */; };
 		8E650F0E252E697E001CE933 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E650F0D252E697E001CE933 /* NavigationViewController.swift */; };
+		8E650F1E25305D0D001CE933 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E650F1D25305D0D001CE933 /* MainTableViewCell.swift */; };
+		8E650F22253060F1001CE933 /* MainServerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E650F21253060F1001CE933 /* MainServerService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +42,7 @@
 		8E650EE7252DCE82001CE933 /* AboutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPresenter.swift; sourceTree = "<group>"; };
 		8E650EEA252DD05B001CE933 /* AbouRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbouRouter.swift; sourceTree = "<group>"; };
 		8E650EED252DD2BE001CE933 /* AboutInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutInteractor.swift; sourceTree = "<group>"; };
-		8E650EF0252DDD40001CE933 /* ServerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerService.swift; sourceTree = "<group>"; };
+		8E650EF0252DDD40001CE933 /* AboutServerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutServerService.swift; sourceTree = "<group>"; };
 		8E650EF4252DEBE5001CE933 /* TitleLabelsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabelsModel.swift; sourceTree = "<group>"; };
 		8E650EF9252E3702001CE933 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8E650EFC252E3714001CE933 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
@@ -48,6 +50,8 @@
 		8E650F02252E3737001CE933 /* MainConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainConfigurator.swift; sourceTree = "<group>"; };
 		8E650F06252E3752001CE933 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		8E650F0D252E697E001CE933 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		8E650F1D25305D0D001CE933 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		8E650F21253060F1001CE933 /* MainServerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainServerService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +105,7 @@
 				8E650EED252DD2BE001CE933 /* AboutInteractor.swift */,
 				8E650EE2252DCD1F001CE933 /* AboutConfigurator.swift */,
 				8E650EEA252DD05B001CE933 /* AbouRouter.swift */,
-				8E650EF0252DDD40001CE933 /* ServerService.swift */,
+				8E650EF0252DDD40001CE933 /* AboutServerService.swift */,
 				8E650EF4252DEBE5001CE933 /* TitleLabelsModel.swift */,
 			);
 			path = "About module";
@@ -110,13 +114,23 @@
 		8E650EF8252E36AC001CE933 /* Main module */ = {
 			isa = PBXGroup;
 			children = (
+				8E650F1A252F7449001CE933 /* Main models */,
 				8E650EF9252E3702001CE933 /* MainViewController.swift */,
 				8E650EFC252E3714001CE933 /* MainPresenter.swift */,
 				8E650EFF252E3725001CE933 /* MainInteractor.swift */,
 				8E650F02252E3737001CE933 /* MainConfigurator.swift */,
 				8E650F06252E3752001CE933 /* MainRouter.swift */,
+				8E650F21253060F1001CE933 /* MainServerService.swift */,
 			);
 			path = "Main module";
+			sourceTree = "<group>";
+		};
+		8E650F1A252F7449001CE933 /* Main models */ = {
+			isa = PBXGroup;
+			children = (
+				8E650F1D25305D0D001CE933 /* MainTableViewCell.swift */,
+			);
+			path = "Main models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,10 +213,12 @@
 				8E650F0E252E697E001CE933 /* NavigationViewController.swift in Sources */,
 				8E650EFD252E3714001CE933 /* MainPresenter.swift in Sources */,
 				8E650EEE252DD2BE001CE933 /* AboutInteractor.swift in Sources */,
+				8E650F1E25305D0D001CE933 /* MainTableViewCell.swift in Sources */,
 				8E650ECD252DCCB4001CE933 /* SceneDelegate.swift in Sources */,
-				8E650EF1252DDD40001CE933 /* ServerService.swift in Sources */,
+				8E650EF1252DDD40001CE933 /* AboutServerService.swift in Sources */,
 				8E650EF5252DEBE5001CE933 /* TitleLabelsModel.swift in Sources */,
 				8E650F00252E3725001CE933 /* MainInteractor.swift in Sources */,
+				8E650F22253060F1001CE933 /* MainServerService.swift in Sources */,
 				8E650F03252E3737001CE933 /* MainConfigurator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 //
-//  ServerService.swift
+//  AboutServerService.swift
 //  My news
 //
 //  Created by Stanislav Slipchenko on 07.10.2020.
@@ -7,12 +7,12 @@
 
 import UIKit
 
-protocol ServerServiceProtocol: class {
+protocol AboutServerServiceProtocol: class {
     var urlRatesSource: String {get}
     func openUrl(with urlString: String?)
 }
 
-class ServerService: ServerServiceProtocol {
+class AboutServerService: AboutServerServiceProtocol {
     var urlRatesSource: String {
         return "https://newsapi.org/"
     }

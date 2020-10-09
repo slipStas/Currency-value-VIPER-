@@ -17,7 +17,7 @@ protocol AboutInteractorProtocol: class {
 class AboutInteractor: AboutInteractorProtocol {
     
     weak var presenter: AboutPresenterProtocol!
-    let serverService: ServerServiceProtocol = ServerService()
+    let serverService: AboutServerServiceProtocol = AboutServerService()
     let titleLabelsModel: TitleLabelsModelProtocol = TitleLabelModel()
     
     required init(presenter: AboutPresenterProtocol) {

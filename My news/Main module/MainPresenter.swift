@@ -29,7 +29,7 @@ class MainPresenter: MainPresenterProtocol {
     }
     
     func configureView() {
-        
+        interactor.loadNews()
     }
     
     
