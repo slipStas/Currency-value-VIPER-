@@ -8,7 +8,7 @@
 import UIKit
 
 class MainTableViewCell: UITableViewCell {
-
+  
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var imageOfNews: UIImageView!
@@ -18,13 +18,20 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var authorNameLabel: UILabel!
     
     @IBOutlet weak var dateLabel: UILabel!
-    
-    @IBOutlet weak var showFullSizeNewsButton: UIButton!
-    
+        
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        titleLabel.text = nil
+        imageOfNews.image = nil
+        descriptionLabel.text = nil
+        authorNameLabel.text = nil
+        dateLabel.text = nil
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -32,5 +39,4 @@ class MainTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

@@ -4,7 +4,7 @@
 //
 //  Created by Stanislav Slipchenko on 09.10.2020.
 
-import Foundation
+import UIKit
 
 // MARK: - News
 class News: Codable {
@@ -37,6 +37,8 @@ class Article: Codable {
     let urlToImage: String?
     let publishedAt: String
     let content: String?
+    
+    var imageNews: UIImage?
 
     enum CodingKeys: String, CodingKey {
         case source, author, title
@@ -55,6 +57,7 @@ class Article: Codable {
         self.urlToImage = try? article.decode(String.self, forKey: .urlToImage)
         self.publishedAt = try! article.decode(String.self, forKey: .publishedAt)
         self.content = try? article.decode(String.self, forKey: .content)
+//        self.imageNews = UIImage()
     }
 }
 

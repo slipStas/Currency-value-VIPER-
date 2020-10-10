@@ -12,6 +12,7 @@ protocol MainPresenterProtocol: class {
     var router: MainRouterProtocol! {get set}
     func configureView()
     func infoButtonClicked()
+    func goToSite(with urlString: String)
 }
 
 class MainPresenter: MainPresenterProtocol {
@@ -29,13 +30,16 @@ class MainPresenter: MainPresenterProtocol {
     }
     
     func configureView() {
-        DispatchQueue.main.async {
-            self.interactor.loadNews()
-            sleep(2)
-            
-            self.view.show(news: self.interactor.news, images: self.interactor.images)
-            self.view.reloadData()
-        }
+        self.interactor.loadNews()
+        sleep(2)
+        self.view.show(news: self.interactor.news, images: self.interactor.images)
+        self.view.reloadData()
     }
+    
+    func goToSite(with urlString: String) {
+        
+        interactor.openUrl(with: urlString)
+    }
+    
 }
 

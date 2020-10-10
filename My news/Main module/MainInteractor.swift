@@ -10,11 +10,13 @@ import UIKit
 protocol MainInteractorProtocol: class {
     var news: News {get}
     var newsCount: Int {get}
-    var images: [String : UIImageView?]? {get}
+    var images: [String : UIImage?]? {get}
     func loadNews()
+    func openUrl(with urlString: String)
 }
 
 class MainInteractor: MainInteractorProtocol {
+    
     weak var presenter: MainPresenterProtocol!
     let mainService: MainServerServiceProtocol = MainServerService()
     
@@ -29,7 +31,7 @@ class MainInteractor: MainInteractorProtocol {
         }
     }
     
-    var images: [String : UIImageView?]? {
+    var images: [String : UIImage?]? {
         get {
             guard let images = mainService.images else {return [:]}
             return images
@@ -44,5 +46,9 @@ class MainInteractor: MainInteractorProtocol {
     
     func loadNews() {
         self.mainService.loadNews()
+    }
+    
+    func openUrl(with urlString: String) {
+        mainService.openUrl(with: urlString)
     }
 }

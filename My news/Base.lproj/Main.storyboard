@@ -63,10 +63,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tkq-tn-8py">
-                                                    <rect key="frame" x="8" y="358" width="398" height="124"/>
-                                                    <state key="normal" title="Button"/>
-                                                </button>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vuV-bQ-eB1">
                                                     <rect key="frame" x="8" y="36.5" width="398" height="209"/>
                                                     <constraints>
@@ -80,21 +76,15 @@
                                                 <constraint firstItem="ni7-HY-Ue1" firstAttribute="top" secondItem="ZkB-fu-fX0" secondAttribute="bottom" constant="8" id="CPk-GD-dr9"/>
                                                 <constraint firstItem="vuV-bQ-eB1" firstAttribute="top" secondItem="7Ba-av-YcL" secondAttribute="bottom" constant="8" id="DrU-2L-m7T"/>
                                                 <constraint firstItem="axd-RH-P7T" firstAttribute="leading" secondItem="9Zr-DO-xhY" secondAttribute="leading" constant="8" id="E8n-L7-alq"/>
-                                                <constraint firstItem="ZkB-fu-fX0" firstAttribute="top" secondItem="axd-RH-P7T" secondAttribute="bottom" constant="8" id="EgR-GW-aRz"/>
                                                 <constraint firstAttribute="trailing" secondItem="vuV-bQ-eB1" secondAttribute="trailing" constant="8" id="EhX-ev-5Ii"/>
                                                 <constraint firstItem="7Ba-av-YcL" firstAttribute="leading" secondItem="9Zr-DO-xhY" secondAttribute="leading" constant="8" id="I7d-c4-MYV"/>
-                                                <constraint firstAttribute="trailing" secondItem="tkq-tn-8py" secondAttribute="trailing" constant="8" id="MfN-X9-NVB"/>
-                                                <constraint firstItem="ZkB-fu-fX0" firstAttribute="top" secondItem="axd-RH-P7T" secondAttribute="bottom" constant="8" id="Mk4-ol-aaJ"/>
                                                 <constraint firstAttribute="trailing" secondItem="ZkB-fu-fX0" secondAttribute="trailing" constant="8" id="afS-DB-RLE"/>
-                                                <constraint firstItem="tkq-tn-8py" firstAttribute="top" secondItem="ni7-HY-Ue1" secondAttribute="bottom" constant="8" id="f3a-aw-X5d"/>
-                                                <constraint firstItem="tkq-tn-8py" firstAttribute="top" secondItem="ni7-HY-Ue1" secondAttribute="bottom" constant="8" id="i1j-hS-2ve"/>
                                                 <constraint firstAttribute="trailing" secondItem="axd-RH-P7T" secondAttribute="trailing" constant="8" id="jbe-W0-wAA"/>
                                                 <constraint firstItem="vuV-bQ-eB1" firstAttribute="leading" secondItem="9Zr-DO-xhY" secondAttribute="leading" constant="8" id="luX-gh-3nz"/>
-                                                <constraint firstItem="tkq-tn-8py" firstAttribute="leading" secondItem="9Zr-DO-xhY" secondAttribute="leading" constant="8" id="mBm-js-xjb"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ni7-HY-Ue1" secondAttribute="bottom" constant="8" id="lv9-ic-brR"/>
                                                 <constraint firstAttribute="trailing" secondItem="7Ba-av-YcL" secondAttribute="trailing" constant="8" id="mmL-6R-o8p"/>
                                                 <constraint firstItem="7Ba-av-YcL" firstAttribute="top" secondItem="9Zr-DO-xhY" secondAttribute="top" constant="8" id="pvJ-zf-zga"/>
-                                                <constraint firstItem="ni7-HY-Ue1" firstAttribute="top" secondItem="ZkB-fu-fX0" secondAttribute="bottom" constant="8" id="rug-1O-uRn"/>
-                                                <constraint firstAttribute="bottom" secondItem="tkq-tn-8py" secondAttribute="bottom" constant="8" id="uqy-DN-rfl"/>
+                                                <constraint firstItem="ZkB-fu-fX0" firstAttribute="top" secondItem="axd-RH-P7T" secondAttribute="bottom" constant="8" id="scC-zq-nxS"/>
                                                 <constraint firstItem="axd-RH-P7T" firstAttribute="top" secondItem="vuV-bQ-eB1" secondAttribute="bottom" constant="8" id="zeM-Yw-rdq"/>
                                                 <constraint firstItem="ni7-HY-Ue1" firstAttribute="leading" secondItem="9Zr-DO-xhY" secondAttribute="leading" constant="8" id="ztK-Eh-ctg"/>
                                             </constraints>
@@ -104,7 +94,6 @@
                                             <outlet property="dateLabel" destination="ni7-HY-Ue1" id="FMv-8g-ag6"/>
                                             <outlet property="descriptionLabel" destination="axd-RH-P7T" id="x4G-pq-Mft"/>
                                             <outlet property="imageOfNews" destination="vuV-bQ-eB1" id="Qsz-KU-cga"/>
-                                            <outlet property="showFullSizeNewsButton" destination="tkq-tn-8py" id="M7i-Ga-daP"/>
                                             <outlet property="titleLabel" destination="7Ba-av-YcL" id="n9M-8g-CSS"/>
                                         </connections>
                                     </tableViewCell>

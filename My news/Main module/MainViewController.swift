@@ -6,11 +6,10 @@
 //
 
 import UIKit
-import Kingfisher
 
 protocol MainViewProtocol: class {
     func reloadData()
-    func show(news: News, images: [String : UIImageView?]?)
+    func show(news: News, images: [String : UIImage?]?)
 }
 
 class MainViewController: UIViewController {
@@ -19,14 +18,15 @@ class MainViewController: UIViewController {
     
     var presenter: MainPresenterProtocol!
     var configurator: MainConfiguratorProtocol = MainConfigurator()
-    var news: News?
-    var images: [String : UIImageView?]?
+    var news: News? 
+    var images: [String : UIImage?]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configurator.configure(with: self)
         presenter.configureView()
         newsTableView.dataSource = self
+        newsTableView.delegate = self
     }
     
     @IBAction func infoButtonPressed(_ sender: Any) {
@@ -35,13 +35,21 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: MainViewProtocol {
-    func show(news: News, images: [String : UIImageView?]?) {
+    func show(news: News, images: [String : UIImage?]?) {
         self.news = news
         self.images = images
     }
     
     func reloadData() {
         newsTableView.reloadData()
+    }
+}
+
+extension MainViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let urlString = news?.articles[indexPath.row].url else {return}
+        presenter.goToSite(with: urlString)
     }
 }
 
@@ -58,15 +66,8 @@ extension MainViewController: UITableViewDataSource {
         cell.authorNameLabel.text = news?.articles[indexPath.row].author
         cell.descriptionLabel.text = news?.articles[indexPath.row].articleDescription
         cell.dateLabel.text = news?.articles[indexPath.row].publishedAt
-        cell.showFullSizeNewsButton.setTitle(news?.articles[indexPath.row].url, for: .normal)
-        
-        // TODO: - fix it
-        
-        let url = URL(string: (news?.articles[indexPath.row].urlToImage) ?? "")
-        
-        cell.imageOfNews.kf.setImage(with: url)  
+        cell.imageOfNews.image = news?.articles[indexPath.row].imageNews ?? UIImage(named: "loading")
         
         return cell
     }
-    
 }
