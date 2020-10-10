@@ -33,7 +33,7 @@ class MainPresenter: MainPresenterProtocol {
             self.interactor.loadNews()
             sleep(2)
             
-            self.view.show(news: self.interactor.news)
+            self.view.show(news: self.interactor.news, images: self.interactor.images)
             self.view.reloadData()
         }
     }

@@ -5,16 +5,16 @@
 //  Created by Stanislav Slipchenko on 07.10.2020.
 //
 
-import Foundation
+import UIKit
 
 protocol MainInteractorProtocol: class {
     var news: News {get}
     var newsCount: Int {get}
+    var images: [String : UIImageView?]? {get}
     func loadNews()
 }
 
 class MainInteractor: MainInteractorProtocol {
-    
     weak var presenter: MainPresenterProtocol!
     let mainService: MainServerServiceProtocol = MainServerService()
     
@@ -28,6 +28,14 @@ class MainInteractor: MainInteractorProtocol {
             return news
         }
     }
+    
+    var images: [String : UIImageView?]? {
+        get {
+            guard let images = mainService.images else {return [:]}
+            return images
+        }
+    }
+    
     var newsCount: Int {
         get {
             return news.totalResults

@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import Kingfisher
 
 protocol MainServerServiceProtocol: class {
     var news: News? {get set}
+    var images: [String : UIImageView?]? {get set}
     func loadNews()
 }
 
@@ -16,6 +18,8 @@ class MainServerService: MainServerServiceProtocol {
     
     private let apiKey = "28d2250865c9496296dd09e61ef40ddc"
     var news: News?
+    var images: [String : UIImageView?]?
+    let image = UIImageView()
     
     func loadNews() {
         let configurator = URLSessionConfiguration.default
@@ -36,8 +40,17 @@ class MainServerService: MainServerServiceProtocol {
             guard let data = data else {return}
             
             let news = try? JSONDecoder().decode(News.self, from: data)
+            
+            
             self.news = news
-            self.news?.articles.forEach {print($0.title)}
-        }.resume()        
+            
+            self.news?.articles.forEach({ (articles) in
+                guard let imageUrl = articles.urlToImage else {return}
+                
+                let url = URL(string: imageUrl )
+//                self.image.kf.setImage(with: url)
+//                self.images?[imageUrl] = self.image
+            })
+        }.resume()
     }
 }
