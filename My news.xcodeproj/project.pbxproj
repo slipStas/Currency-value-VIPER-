@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -78,7 +78,6 @@
 				B1A8424129D06F6A53EF7D3B /* Pods-My news.debug.xcconfig */,
 				640733D06BA40312276A3563 /* Pods-My news.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -110,8 +109,8 @@
 				8E650ED5252DCCB9001CE933 /* LaunchScreen.storyboard */,
 				8E650ED8252DCCB9001CE933 /* Info.plist */,
 				8E650F0D252E697E001CE933 /* NavigationViewController.swift */,
-				8E650F2D2530D00E001CE933 /* Services */,
 				8E650F2A2530CF11001CE933 /* Entities */,
+				8E650F2D2530D00E001CE933 /* Services */,
 				8E650EF8252E36AC001CE933 /* Main module */,
 				8E650EE5252DCE3F001CE933 /* About module */,
 			);
