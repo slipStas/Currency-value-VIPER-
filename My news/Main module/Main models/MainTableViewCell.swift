@@ -11,17 +11,16 @@ class MainTableViewCell: UITableViewCell {
   
     @IBOutlet weak var titleLabel: UILabel!
     
-    @IBOutlet weak var imageOfNews: UIImageView!
+    @IBOutlet weak var imageOfNews: NewsImageView!
     
     @IBOutlet weak var descriptionLabel: UILabel!
-    
-    @IBOutlet weak var authorNameLabel: UILabel!
-    
+        
     @IBOutlet weak var dateLabel: UILabel!
         
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
     }
     
     override func prepareForReuse() {
@@ -30,7 +29,6 @@ class MainTableViewCell: UITableViewCell {
         titleLabel.text = nil
         imageOfNews.image = nil
         descriptionLabel.text = nil
-        authorNameLabel.text = nil
         dateLabel.text = nil
     }
 

@@ -48,6 +48,8 @@ extension MainViewController: MainViewProtocol {
 extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.cellForRow(at: indexPath)?.isSelected = false
         guard let urlString = news?.articles[indexPath.row].url else {return}
         presenter.goToSite(with: urlString)
     }
@@ -62,10 +64,17 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "news table cell", for: indexPath) as! MainTableViewCell
         
+        var date: String
+        
+        if let dateNotNill = news?.articles[indexPath.row].publishedAt {
+            date = dateNotNill
+            date = date.replacingOccurrences(of: "T", with: "  ")
+            date = date.replacingOccurrences(of: "Z", with: "")
+            cell.dateLabel.text = date
+        }
+        
         cell.titleLabel.text = news?.articles[indexPath.row].title
-        cell.authorNameLabel.text = news?.articles[indexPath.row].author
         cell.descriptionLabel.text = news?.articles[indexPath.row].articleDescription
-        cell.dateLabel.text = news?.articles[indexPath.row].publishedAt
         cell.imageOfNews.image = news?.articles[indexPath.row].imageNews ?? UIImage(named: "loading")
         
         return cell

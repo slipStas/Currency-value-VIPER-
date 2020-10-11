@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E3EAEC12533B4050067F198 /* NewsImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3EAEC02533B4050067F198 /* NewsImageView.swift */; };
 		8E650ECB252DCCB4001CE933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E650ECA252DCCB4001CE933 /* AppDelegate.swift */; };
 		8E650ECD252DCCB4001CE933 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E650ECC252DCCB4001CE933 /* SceneDelegate.swift */; };
 		8E650ED2252DCCB4001CE933 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E650ED0252DCCB4001CE933 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		185ED9469A171BCF7A8B5F54 /* Pods_My_news.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_news.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		640733D06BA40312276A3563 /* Pods-My news.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My news.release.xcconfig"; path = "Target Support Files/Pods-My news/Pods-My news.release.xcconfig"; sourceTree = "<group>"; };
+		8E3EAEC02533B4050067F198 /* NewsImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsImageView.swift; sourceTree = "<group>"; };
 		8E650EC7252DCCB4001CE933 /* My news.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My news.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E650ECA252DCCB4001CE933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E650ECC252DCCB4001CE933 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				8E650F1D25305D0D001CE933 /* MainTableViewCell.swift */,
+				8E3EAEC02533B4050067F198 /* NewsImageView.swift */,
 			);
 			path = "Main models";
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				8E650EEB252DD05B001CE933 /* AbouRouter.swift in Sources */,
 				8E650EE3252DCD1F001CE933 /* AboutConfigurator.swift in Sources */,
 				8E650F0E252E697E001CE933 /* NavigationViewController.swift in Sources */,
+				8E3EAEC12533B4050067F198 /* NewsImageView.swift in Sources */,
 				8E650EFD252E3714001CE933 /* MainPresenter.swift in Sources */,
 				8E650EEE252DD2BE001CE933 /* AboutInteractor.swift in Sources */,
 				8E650F1E25305D0D001CE933 /* MainTableViewCell.swift in Sources */,
