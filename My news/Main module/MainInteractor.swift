@@ -26,13 +26,13 @@ class MainInteractor: MainInteractorProtocol {
     var news: News {
         get {
             guard let news = mainService.news else {return News(status: "error", articles: [])}
-            
+
             return news
         }
     }
-    
+
     func loadNews(completionHandler: @escaping() -> ()) {
-        self.mainService.loadNews {
+        self.mainService.loadNews { 
             completionHandler()
         }
     }

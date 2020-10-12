@@ -59,7 +59,7 @@ class MainServerService: MainServerServiceProtocol {
             
             let image = UIImage(data: dataNotNil)
             
-            articles.imageNews = image ?? UIImage(named: "bolt")!
+            articles.imageNews = image ?? UIImage(named: "loading")!
             completionHandler()
         })
     }
