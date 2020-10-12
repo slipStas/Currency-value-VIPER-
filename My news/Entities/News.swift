@@ -9,12 +9,10 @@ import UIKit
 // MARK: - News
 class News: Codable {
     let status: String
-    let totalResults: Int
     let articles: [Article]
     
-    init(status: String, totalResults: Int, articles: [Article]) {
+    init(status: String, articles: [Article]) {
         self.status = status
-        self.totalResults = totalResults
         self.articles = articles
     }
     
@@ -22,7 +20,6 @@ class News: Codable {
         let newsModel = try decoder.container(keyedBy: CodingKeys.self)
         
         self.status = try! newsModel.decode(String.self, forKey: .status)
-        self.totalResults = try! newsModel.decode(Int.self, forKey: .totalResults)
         self.articles = try! newsModel.decode([Article].self, forKey: .articles)
     }
 }

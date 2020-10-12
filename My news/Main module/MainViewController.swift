@@ -9,7 +9,7 @@ import UIKit
 
 protocol MainViewProtocol: class {
     func reloadData()
-    func show(news: News, images: [String : UIImage?]?)
+    func show(news: News?)
 }
 
 class MainViewController: UIViewController {
@@ -19,7 +19,7 @@ class MainViewController: UIViewController {
     var presenter: MainPresenterProtocol!
     var configurator: MainConfiguratorProtocol = MainConfigurator()
     var news: News? 
-    var images: [String : UIImage?]?
+//    var images: [String : UIImage?]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,13 +35,15 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: MainViewProtocol {
-    func show(news: News, images: [String : UIImage?]?) {
+    func show(news: News?) {
         self.news = news
-        self.images = images
+//        self.images = images
     }
     
     func reloadData() {
-        newsTableView.reloadData()
+        DispatchQueue.main.async {
+            self.newsTableView.reloadData()
+        }
     }
 }
 
@@ -58,7 +60,7 @@ extension MainViewController: UITableViewDelegate {
 extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        news?.totalResults ?? 0
+        news?.articles.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

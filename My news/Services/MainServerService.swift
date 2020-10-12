@@ -9,9 +9,8 @@ import UIKit
 
 protocol MainServerServiceProtocol: class {
     var news: News? {get set}
-    var images: [String : UIImage?]? {get set}
-    func loadNews()
-    func loadImagesNews()
+    func loadNews(completionHandler: @escaping() -> ())
+    func loadImagesNews(completionHandler: @escaping() -> ())
     func openUrl(with urlString: String)
 }
 
@@ -19,35 +18,35 @@ class MainServerService: MainServerServiceProtocol {
     
     private let apiKey = "28d2250865c9496296dd09e61ef40ddc"
     var news: News?
-    var images: [String : UIImage?]?
     
-    func loadNews() {
-        
-        let configurator = URLSessionConfiguration.default
-        let session = URLSession(configuration: configurator)
-        var urlConstructor = URLComponents()
-        
-        urlConstructor.scheme = "https"
-        urlConstructor.host = "newsapi.org"
-        urlConstructor.path = "/v2/top-headlines"
-        urlConstructor.queryItems = [
-            URLQueryItem(name: "country", value: "ru"),
-            URLQueryItem(name: "apiKey", value: self.apiKey),
-            URLQueryItem(name: "pageSize", value: "100")]
-        
-        guard let url = urlConstructor.url else {return}
-        
-        session.dataTask(with: url) { (data, response, error) in
-            guard let data = data else {return}
+    func loadNews(completionHandler: @escaping() -> ()) {
+        DispatchQueue.main.async {
+            let configurator = URLSessionConfiguration.default
+            let session = URLSession(configuration: configurator)
+            var urlConstructor = URLComponents()
             
-            let news = try? JSONDecoder().decode(News.self, from: data)
+            urlConstructor.scheme = "https"
+            urlConstructor.host = "newsapi.org"
+            urlConstructor.path = "/v2/top-headlines"
+            urlConstructor.queryItems = [
+                URLQueryItem(name: "country", value: "ru"),
+                URLQueryItem(name: "apiKey", value: self.apiKey),
+                URLQueryItem(name: "pageSize", value: "15")]
             
-            self.news = news
-            self.loadImagesNews()
-        }.resume()
+            guard let url = urlConstructor.url else {return}
+            
+            session.dataTask(with: url) { (data, response, error) in
+                guard let data = data else {return}
+                
+                let news = try? JSONDecoder().decode(News.self, from: data)
+                
+                self.news = news
+                completionHandler()
+            }.resume()
+        }
     }
     
-    func loadImagesNews() {
+    func loadImagesNews(completionHandler: @escaping() -> ()) {
         self.news?.articles.forEach({ (articles) in
 
             guard let urlString = articles.urlToImage else {return}
@@ -61,8 +60,7 @@ class MainServerService: MainServerServiceProtocol {
             let image = UIImage(data: dataNotNil)
             
             articles.imageNews = image ?? UIImage(named: "bolt")!
-            self.images?.updateValue(image, forKey: urlString)
-            
+            completionHandler()
         })
     }
     

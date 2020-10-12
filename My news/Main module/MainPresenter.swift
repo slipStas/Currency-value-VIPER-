@@ -30,10 +30,13 @@ class MainPresenter: MainPresenterProtocol {
     }
     
     func configureView() {
-        self.interactor.loadNews()                                                  // улетает запрос на сервер
-        sleep(2)                                    // жду 2 секунды для того, чтобы успели вернуться данные с сервера
-        self.view.show(news: self.interactor.news, images: self.interactor.images)  // обновляются переменные во вью
-        self.view.reloadData()                                                      // перезагружается таблица
+        self.interactor.loadNews(completionHandler: {
+            self.view.show(news: self.interactor.news)
+            self.view.reloadData()
+            self.interactor.loadImagesNews(completionHandler: {
+                self.view.reloadData()
+            })
+        })
     }
     
     func goToSite(with urlString: String) {

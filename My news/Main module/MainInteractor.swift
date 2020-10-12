@@ -9,9 +9,8 @@ import UIKit
 
 protocol MainInteractorProtocol: class {
     var news: News {get}
-    var newsCount: Int {get}
-    var images: [String : UIImage?]? {get}
-    func loadNews()
+    func loadNews(completionHandler: @escaping() -> ())
+    func loadImagesNews(completionHandler: @escaping() -> ())
     func openUrl(with urlString: String)
 }
 
@@ -26,26 +25,22 @@ class MainInteractor: MainInteractorProtocol {
     
     var news: News {
         get {
-            guard let news = mainService.news else {return News(status: "error", totalResults: 0, articles: [])}
+            guard let news = mainService.news else {return News(status: "error", articles: [])}
+            
             return news
         }
     }
     
-    var images: [String : UIImage?]? {
-        get {
-            guard let images = mainService.images else {return [:]}
-            return images
+    func loadNews(completionHandler: @escaping() -> ()) {
+        self.mainService.loadNews {
+            completionHandler()
         }
     }
     
-    var newsCount: Int {
-        get {
-            return news.totalResults
+    func loadImagesNews(completionHandler: @escaping () -> ()) {
+        self.mainService.loadImagesNews {
+            completionHandler()
         }
-    }
-    
-    func loadNews() {
-        self.mainService.loadNews()
     }
     
     func openUrl(with urlString: String) {
