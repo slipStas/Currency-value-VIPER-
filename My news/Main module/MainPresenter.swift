@@ -10,7 +10,7 @@ import Foundation
 protocol MainPresenterProtocol: class {
     
     var router: MainRouterProtocol! {get set}
-    func configureView()
+    func configureView(completionHandler: @escaping() -> ())
     func infoButtonClicked()
     func goToSite(with urlString: String)
 }
@@ -29,10 +29,11 @@ class MainPresenter: MainPresenterProtocol {
         router.presentAboutController()
     }
     
-    func configureView() {
+    func configureView(completionHandler: @escaping() -> ()) {
         self.interactor.loadNews(completionHandler: {
             self.view.show(news: self.interactor.news)
             self.view.reloadData()
+            completionHandler()
             self.interactor.loadImagesNews(completionHandler: {
                 self.view.reloadData()
             })

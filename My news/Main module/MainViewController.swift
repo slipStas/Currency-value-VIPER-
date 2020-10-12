@@ -18,16 +18,23 @@ class MainViewController: UIViewController {
     
     var presenter: MainPresenterProtocol!
     var configurator: MainConfiguratorProtocol = MainConfigurator()
-    var news: News? 
-//    var images: [String : UIImage?]?
+    var news: News?
+    let refreshControl = UIRefreshControl()
     
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         configurator.configure(with: self)
-        presenter.configureView()
+        presenter.configureView(completionHandler: {})
+        
+        newsTableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshNewsData), for: .valueChanged)
+
         newsTableView.dataSource = self
         newsTableView.delegate = self
     }
+    
+    
     
     @IBAction func infoButtonPressed(_ sender: Any) {
         presenter.infoButtonClicked()
@@ -35,9 +42,17 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: MainViewProtocol {
+    
+    @objc func refreshNewsData() {
+        presenter.configureView(completionHandler: {
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+            }
+        })
+    }
+    
     func show(news: News?) {
         self.news = news
-//        self.images = images
     }
     
     func reloadData() {

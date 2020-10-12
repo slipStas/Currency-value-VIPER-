@@ -30,6 +30,7 @@ class MainServerService: MainServerServiceProtocol {
             urlConstructor.path = "/v2/top-headlines"
             urlConstructor.queryItems = [
                 URLQueryItem(name: "country", value: "ru"),
+                URLQueryItem(name: "category", value: "general"),
                 URLQueryItem(name: "apiKey", value: self.apiKey),
                 URLQueryItem(name: "pageSize", value: "15")]
             
