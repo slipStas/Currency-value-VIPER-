@@ -40,13 +40,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axd-RH-P7T">
-                                                    <rect key="frame" x="8" y="270.5" width="398" height="18"/>
+                                                    <rect key="frame" x="8" y="303.5" width="398" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ni7-HY-Ue1">
-                                                    <rect key="frame" x="8" y="296.5" width="398" height="30"/>
+                                                    <rect key="frame" x="8" y="329.5" width="398" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="PCG-J0-yqD"/>
                                                     </constraints>
@@ -55,25 +55,25 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vuV-bQ-eB1" customClass="NewsImageView" customModule="My_news" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="45.5" width="398" height="209"/>
+                                                    <rect key="frame" x="8" y="45.5" width="398" height="242"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="vuV-bQ-eB1" secondAttribute="height" multiplier="1200:630" id="ZyZ-Qd-ufZ"/>
+                                                        <constraint firstAttribute="width" secondItem="vuV-bQ-eB1" secondAttribute="height" multiplier="1200:730" id="g8l-zj-mha"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="ni7-HY-Ue1" firstAttribute="top" secondItem="axd-RH-P7T" secondAttribute="bottom" constant="8" id="2eI-Wo-fQ8"/>
+                                                <constraint firstItem="axd-RH-P7T" firstAttribute="top" secondItem="vuV-bQ-eB1" secondAttribute="bottom" constant="16" id="3Ol-MH-EXy"/>
                                                 <constraint firstAttribute="trailing" secondItem="ni7-HY-Ue1" secondAttribute="trailing" constant="8" id="7rh-qa-yjT"/>
-                                                <constraint firstItem="vuV-bQ-eB1" firstAttribute="top" secondItem="7Ba-av-YcL" secondAttribute="bottom" constant="16" id="DrU-2L-m7T"/>
+                                                <constraint firstAttribute="trailing" secondItem="vuV-bQ-eB1" secondAttribute="trailing" constant="8" id="Dux-CR-Wsh"/>
                                                 <constraint firstItem="axd-RH-P7T" firstAttribute="leading" secondItem="9Zr-DO-xhY" secondAttribute="leading" constant="8" id="E8n-L7-alq"/>
-                                                <constraint firstAttribute="trailing" secondItem="vuV-bQ-eB1" secondAttribute="trailing" constant="8" id="EhX-ev-5Ii"/>
                                                 <constraint firstItem="7Ba-av-YcL" firstAttribute="leading" secondItem="9Zr-DO-xhY" secondAttribute="leading" constant="8" id="I7d-c4-MYV"/>
+                                                <constraint firstItem="vuV-bQ-eB1" firstAttribute="top" secondItem="7Ba-av-YcL" secondAttribute="bottom" constant="16" id="hWg-BW-Bxs"/>
                                                 <constraint firstAttribute="trailing" secondItem="axd-RH-P7T" secondAttribute="trailing" constant="8" id="jbe-W0-wAA"/>
-                                                <constraint firstItem="vuV-bQ-eB1" firstAttribute="leading" secondItem="9Zr-DO-xhY" secondAttribute="leading" constant="8" id="luX-gh-3nz"/>
+                                                <constraint firstItem="vuV-bQ-eB1" firstAttribute="leading" secondItem="9Zr-DO-xhY" secondAttribute="leading" constant="8" id="lQM-kh-8SP"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ni7-HY-Ue1" secondAttribute="bottom" constant="8" id="lv9-ic-brR"/>
                                                 <constraint firstAttribute="trailing" secondItem="7Ba-av-YcL" secondAttribute="trailing" constant="8" id="mmL-6R-o8p"/>
                                                 <constraint firstItem="7Ba-av-YcL" firstAttribute="top" secondItem="9Zr-DO-xhY" secondAttribute="top" constant="8" id="pvJ-zf-zga"/>
-                                                <constraint firstItem="axd-RH-P7T" firstAttribute="top" secondItem="vuV-bQ-eB1" secondAttribute="bottom" constant="16" id="zeM-Yw-rdq"/>
                                                 <constraint firstItem="ni7-HY-Ue1" firstAttribute="leading" secondItem="9Zr-DO-xhY" secondAttribute="leading" constant="8" id="ztK-Eh-ctg"/>
                                             </constraints>
                                         </tableViewCellContentView>
