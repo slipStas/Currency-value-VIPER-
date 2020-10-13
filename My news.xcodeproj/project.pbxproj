@@ -69,6 +69,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E3EAF502535FB5F0067F198 /* Page module */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Page module";
+			sourceTree = "<group>";
+		};
 		8E650EBE252DCCB4001CE933 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +104,7 @@
 				8E650F0D252E697E001CE933 /* NavigationViewController.swift */,
 				8E650F2A2530CF11001CE933 /* Entities */,
 				8E650F2D2530D00E001CE933 /* Services */,
+				8E3EAF502535FB5F0067F198 /* Page module */,
 				8E650EF8252E36AC001CE933 /* Main module */,
 				8E650EE5252DCE3F001CE933 /* About module */,
 			);
