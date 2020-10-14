@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		8E3EAEC12533B4050067F198 /* NewsImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3EAEC02533B4050067F198 /* NewsImageView.swift */; };
+		8E3EAF54253600A50067F198 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3EAF53253600A50067F198 /* PageViewController.swift */; };
+		8E3EAF57253600BC0067F198 /* PagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3EAF56253600BC0067F198 /* PagePresenter.swift */; };
+		8E3EAF5A253600D10067F198 /* PageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3EAF59253600D10067F198 /* PageInteractor.swift */; };
+		8E3EAF5D253600E60067F198 /* PageConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3EAF5C253600E60067F198 /* PageConfigurator.swift */; };
+		8E3EAF60253600F60067F198 /* PageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3EAF5F253600F60067F198 /* PageRouter.swift */; };
 		8E650ECB252DCCB4001CE933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E650ECA252DCCB4001CE933 /* AppDelegate.swift */; };
 		8E650ECD252DCCB4001CE933 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E650ECC252DCCB4001CE933 /* SceneDelegate.swift */; };
 		8E650ED2252DCCB4001CE933 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E650ED0252DCCB4001CE933 /* Main.storyboard */; };
@@ -33,6 +38,11 @@
 
 /* Begin PBXFileReference section */
 		8E3EAEC02533B4050067F198 /* NewsImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsImageView.swift; sourceTree = "<group>"; };
+		8E3EAF53253600A50067F198 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		8E3EAF56253600BC0067F198 /* PagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagePresenter.swift; sourceTree = "<group>"; };
+		8E3EAF59253600D10067F198 /* PageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageInteractor.swift; sourceTree = "<group>"; };
+		8E3EAF5C253600E60067F198 /* PageConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageConfigurator.swift; sourceTree = "<group>"; };
+		8E3EAF5F253600F60067F198 /* PageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageRouter.swift; sourceTree = "<group>"; };
 		8E650EC7252DCCB4001CE933 /* My news.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My news.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E650ECA252DCCB4001CE933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E650ECC252DCCB4001CE933 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +82,11 @@
 		8E3EAF502535FB5F0067F198 /* Page module */ = {
 			isa = PBXGroup;
 			children = (
+				8E3EAF53253600A50067F198 /* PageViewController.swift */,
+				8E3EAF56253600BC0067F198 /* PagePresenter.swift */,
+				8E3EAF59253600D10067F198 /* PageInteractor.swift */,
+				8E3EAF5C253600E60067F198 /* PageConfigurator.swift */,
+				8E3EAF5F253600F60067F198 /* PageRouter.swift */,
 			);
 			path = "Page module";
 			sourceTree = "<group>";
@@ -233,6 +248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E3EAF5D253600E60067F198 /* PageConfigurator.swift in Sources */,
 				8E650EE8252DCE82001CE933 /* AboutPresenter.swift in Sources */,
 				8E650EFA252E3702001CE933 /* MainViewController.swift in Sources */,
 				8E650ECB252DCCB4001CE933 /* AppDelegate.swift in Sources */,
@@ -241,13 +257,17 @@
 				8E650EEB252DD05B001CE933 /* AbouRouter.swift in Sources */,
 				8E650EE3252DCD1F001CE933 /* AboutConfigurator.swift in Sources */,
 				8E650F0E252E697E001CE933 /* NavigationViewController.swift in Sources */,
+				8E3EAF60253600F60067F198 /* PageRouter.swift in Sources */,
 				8E3EAEC12533B4050067F198 /* NewsImageView.swift in Sources */,
 				8E650EFD252E3714001CE933 /* MainPresenter.swift in Sources */,
 				8E650EEE252DD2BE001CE933 /* AboutInteractor.swift in Sources */,
+				8E3EAF54253600A50067F198 /* PageViewController.swift in Sources */,
 				8E650F1E25305D0D001CE933 /* MainTableViewCell.swift in Sources */,
 				8E650ECD252DCCB4001CE933 /* SceneDelegate.swift in Sources */,
 				8E650F2525307163001CE933 /* News.swift in Sources */,
+				8E3EAF57253600BC0067F198 /* PagePresenter.swift in Sources */,
 				8E650EF1252DDD40001CE933 /* AboutServerService.swift in Sources */,
+				8E3EAF5A253600D10067F198 /* PageInteractor.swift in Sources */,
 				8E650EF5252DEBE5001CE933 /* TitleLabelsModel.swift in Sources */,
 				8E650F00252E3725001CE933 /* MainInteractor.swift in Sources */,
 				8E650F22253060F1001CE933 /* MainServerService.swift in Sources */,

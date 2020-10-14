@@ -21,20 +21,19 @@ class MainViewController: UIViewController {
     var news: News?
     let refreshControl = UIRefreshControl()
     
+    
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         configurator.configure(with: self)
         presenter.configureView(completionHandler: {})
-        
+
         newsTableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshNewsData), for: .valueChanged)
 
         newsTableView.dataSource = self
         newsTableView.delegate = self
     }
-    
-    
     
     @IBAction func infoButtonPressed(_ sender: Any) {
         presenter.infoButtonClicked()
