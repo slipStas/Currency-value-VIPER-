@@ -8,26 +8,45 @@
 import UIKit
 
 protocol MainViewProtocol: class {
+    
+    var categoryOfRequest: CategoriesOfRequest {get set}
     func reloadData()
     func show(news: News?)
 }
 
+enum CategoriesOfRequest: String {
+    case general = "general"
+    case business = "business"
+    case entertainment = "entertainment"
+    case health = "health"
+    case science = "science"
+    case sports = "sports"
+    case technology = "technology"
+}
+
 class MainViewController: UIViewController {
     
-//    @IBOutlet weak var newsTableView: UITableView!
-    
+    var categoryOfRequest: CategoriesOfRequest
     var presenter: MainPresenterProtocol!
     var configurator: MainConfiguratorProtocol = MainConfigurator()
     var news: News?
     let refreshControl = UIRefreshControl()
     
-    //MARK: - UIViews
+    //MARK: - declare views
     let infoButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "info.circle"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
+    }()
+    
+    let categoryLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 20)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
     }()
     
     let newsTableView: UITableView = {
@@ -41,10 +60,11 @@ class MainViewController: UIViewController {
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        categoryLabel.text = categoryTextChangeToRU(englishText: categoryOfRequest)
         configurator.configure(with: self)
-        presenter.configureView(completionHandler: {})
+        presenter.configureView(with: self.categoryOfRequest, completionHandler: {})
 
-        self.view.backgroundColor = .white
         addViews()
         newsTableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshNewsData), for: .valueChanged)
@@ -53,36 +73,65 @@ class MainViewController: UIViewController {
         newsTableView.delegate = self
     }
     
+    init(categoryOfRequest: CategoriesOfRequest) {
+        self.categoryOfRequest = categoryOfRequest
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: - declare methods
     @objc func infoButtonPressed() {
         presenter.infoButtonClicked()
+    }
+    
+    func categoryTextChangeToRU(englishText: CategoriesOfRequest) -> String {
+        switch englishText {
+        case .business:
+            return "Авто"
+        case .entertainment:
+            return "Шоу-бизнесс"
+        case .general:
+            return "Общее"
+        case .health:
+            return "Медицина"
+        case .science:
+            return "Наука"
+        case .sports:
+            return "Спорт"
+        case .technology:
+            return "Технологии"
+        }
     }
     
     func addViews() {
         view.addSubview(infoButton)
         view.addSubview(newsTableView)
+        view.addSubview(categoryLabel)
         
         infoButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 44).isActive = true
         infoButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true
         infoButton.widthAnchor.constraint(equalToConstant: 20).isActive = true
         infoButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
+        categoryLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 44).isActive = true
+        categoryLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        categoryLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+
         newsTableView.topAnchor.constraint(equalTo: self.infoButton.bottomAnchor, constant: 8).isActive = true
         newsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         newsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         newsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-
-        
     }
-    
-//    @IBAction func infoButtonPressed(_ sender: Any) {
-//        presenter.infoButtonClicked()
-//    }
 }
 
+//MARK: - extensions
 extension MainViewController: MainViewProtocol {
     
     @objc func refreshNewsData() {
-        presenter.configureView(completionHandler: {
+        presenter.configureView(with: self.categoryOfRequest, completionHandler: {
             DispatchQueue.main.async {
                 self.refreshControl.endRefreshing()
             }

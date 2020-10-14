@@ -13,9 +13,8 @@ class PageViewController: UIPageViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .lightGray
-                
+        
+        view.backgroundColor = .systemBackground
         setViewControllers([self.newsViewControllers[0]], direction: .forward, animated: true, completion: nil)
         
         self.dataSource = self
@@ -34,13 +33,15 @@ class PageViewController: UIPageViewController {
     }
     
     func addViewControllers() {
-        print(newsViewControllers.count)
-        let firstVC = MainViewController()
-        let secondVC = MainViewController()
+        let firstVC = MainViewController(categoryOfRequest: .general)
+        let secondVC = MainViewController(categoryOfRequest: .business)
+        let thirdVC = MainViewController(categoryOfRequest: .entertainment)
+        let foursVC = MainViewController(categoryOfRequest: .health)
+        let fivethVC = MainViewController(categoryOfRequest: .science)
+        let sixthVC = MainViewController(categoryOfRequest: .sports)
+        let seventhVC = MainViewController(categoryOfRequest: .technology)
 
-        newsViewControllers.append(contentsOf: [firstVC, secondVC])
-        print(newsViewControllers.count)
-
+        newsViewControllers.append(contentsOf: [firstVC, secondVC, thirdVC, foursVC, fivethVC, sixthVC, seventhVC])
     }
 }
 

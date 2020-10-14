@@ -22,8 +22,8 @@ class MainRouter: MainRouterProtocol {
     
     func presentAboutController() {
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let navigationVC = storyboard.instantiateViewController(withIdentifier: "navigationVC") as! NavigationViewController
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let navigationVC = AboutViewController() //storyboard.instantiateViewController(withIdentifier: "AboutViewController") as! AboutViewController
         viewController.present(navigationVC, animated: true, completion: nil)
     }
 }

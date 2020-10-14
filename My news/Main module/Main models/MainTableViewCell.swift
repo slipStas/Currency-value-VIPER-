@@ -8,20 +8,11 @@
 import UIKit
 
 class MainTableViewCell: UITableViewCell {
-  
-//    @IBOutlet weak var titleLabel: UILabel!
-//
-//    @IBOutlet weak var imageOfNews: NewsImageView!
-//
-//    @IBOutlet weak var descriptionLabel: UILabel!
-//
-//    @IBOutlet weak var dateLabel: UILabel!
     
     //MARK: - UIViews
     let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20)
-        label.textColor = .black
         label.textAlignment = .left
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -39,7 +30,6 @@ class MainTableViewCell: UITableViewCell {
     let descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = .black
         label.textAlignment = .left
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -73,7 +63,6 @@ class MainTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
     func addViews() {
@@ -98,8 +87,7 @@ class MainTableViewCell: UITableViewCell {
         self.dateLabel.topAnchor.constraint(equalTo: self.descriptionLabel.bottomAnchor, constant: 8).isActive = true
         self.dateLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 8).isActive = true
         self.dateLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -8).isActive = true
-        self.dateLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -8).isActive = true
-
+        self.dateLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -16).isActive = true
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

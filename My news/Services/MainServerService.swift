@@ -9,7 +9,7 @@ import UIKit
 
 protocol MainServerServiceProtocol: class {
     var news: News? {get set}
-    func loadNews(completionHandler: @escaping() -> ())
+    func loadNews(with category: CategoriesOfRequest, completionHandler: @escaping() -> ())
     func loadImagesNews(completionHandler: @escaping() -> ())
     func openUrl(with urlString: String)
 }
@@ -19,7 +19,7 @@ class MainServerService: MainServerServiceProtocol {
     private let apiKey = "28d2250865c9496296dd09e61ef40ddc"
     var news: News?
     
-    func loadNews(completionHandler: @escaping() -> ()) {
+    func loadNews(with category: CategoriesOfRequest, completionHandler: @escaping() -> ()) {
         DispatchQueue.main.async {
             let configurator = URLSessionConfiguration.default
             let session = URLSession(configuration: configurator)
@@ -30,7 +30,7 @@ class MainServerService: MainServerServiceProtocol {
             urlConstructor.path = "/v2/top-headlines"
             urlConstructor.queryItems = [
                 URLQueryItem(name: "country", value: "ru"),
-                URLQueryItem(name: "category", value: "general"),
+                URLQueryItem(name: "category", value: category.rawValue),
                 URLQueryItem(name: "apiKey", value: self.apiKey),
                 URLQueryItem(name: "pageSize", value: "15")]
             

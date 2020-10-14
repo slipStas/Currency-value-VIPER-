@@ -9,7 +9,7 @@ import UIKit
 
 protocol MainInteractorProtocol: class {
     var news: News {get}
-    func loadNews(completionHandler: @escaping() -> ())
+    func loadNews(with category: CategoriesOfRequest, completionHandler: @escaping() -> ())
     func loadImagesNews(completionHandler: @escaping() -> ())
     func openUrl(with urlString: String)
 }
@@ -31,8 +31,8 @@ class MainInteractor: MainInteractorProtocol {
         }
     }
 
-    func loadNews(completionHandler: @escaping() -> ()) {
-        self.mainService.loadNews { 
+    func loadNews(with category: CategoriesOfRequest, completionHandler: @escaping() -> ()) {
+        self.mainService.loadNews(with: category) { 
             completionHandler()
         }
     }

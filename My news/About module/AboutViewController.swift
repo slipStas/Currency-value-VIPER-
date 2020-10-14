@@ -15,25 +15,82 @@ protocol AboutViewProtocol: class {
 
 class AboutViewController: UIViewController, AboutViewProtocol {
     
-    @IBOutlet weak var urlButton: UIButton!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var thanksForLabel: UILabel!
+    //MARK: - declare views
+    let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return stackView
+    }()
+    
+    let emptyView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
+    }()
+    
+    let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    let thanksForLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+
+        
+        return label
+    }()
+    
+    let urlButton: UIButton = {
+        let button = UIButton()
+        button.setTitleColor(.systemBlue, for: .normal)
+        button.isUserInteractionEnabled = true
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
     
     var presenter: AboutPresenterProtocol!
     var configurator: AboutConfiguratorProtocol = AboutConfigurator()
     
+    //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .systemBackground
+        setupViews()
         configurator.configure(with: self)
         presenter.configureView()
     }
     
-    @IBAction func closeButtonClicked(_ sender: UIBarButtonItem) {
+    //Mark: - declare methods
+    @objc func closeButtonClicked() {
         presenter.closeButtonClicked()
     }
-    @IBAction func urlButtonClicked(_ sender: UIButton) {
-        presenter.urlButtonClicked(with: sender.currentTitle!)
+    
+    @objc func urlButtonClicked() {
+        presenter.urlButtonClicked(with: urlButton.currentTitle!)
+    }
+    
+    func setupViews() {
+        stackView.addArrangedSubview(descriptionLabel)
+        stackView.addArrangedSubview(emptyView)
+        stackView.addArrangedSubview(thanksForLabel)
+        stackView.addArrangedSubview(urlButton)
+        
+        view.addSubview(stackView)
+        
+        urlButton.addTarget(self, action: #selector(urlButtonClicked), for: .touchUpInside)
+
+        stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
+        stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        emptyView.heightAnchor.constraint(equalToConstant: 20).isActive = true
     }
     
     func setUrlButtonTitle(with title: String) {
