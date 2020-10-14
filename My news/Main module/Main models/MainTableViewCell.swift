@@ -9,14 +9,52 @@ import UIKit
 
 class MainTableViewCell: UITableViewCell {
   
-    @IBOutlet weak var titleLabel: UILabel!
+//    @IBOutlet weak var titleLabel: UILabel!
+//
+//    @IBOutlet weak var imageOfNews: NewsImageView!
+//
+//    @IBOutlet weak var descriptionLabel: UILabel!
+//
+//    @IBOutlet weak var dateLabel: UILabel!
     
-    @IBOutlet weak var imageOfNews: NewsImageView!
+    //MARK: - UIViews
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 20)
+        label.textColor = .black
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
     
-    @IBOutlet weak var descriptionLabel: UILabel!
+    let imageOfNews: NewsImageView = {
+        let imageView = NewsImageView(frame: .zero)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         
-    @IBOutlet weak var dateLabel: UILabel!
+        return imageView
+    }()
+    
+    let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.textColor = .black
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
         
+        return label
+    }()
+    
+    let dateLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textColor = .systemGray
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,5 +74,41 @@ class MainTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func addViews() {
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(imageOfNews)
+        contentView.addSubview(descriptionLabel)
+        contentView.addSubview(dateLabel)
+        
+        self.titleLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 8).isActive = true
+        self.titleLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 8).isActive = true
+        self.titleLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -8).isActive = true
+        
+        self.imageOfNews.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 16).isActive = true
+        self.imageOfNews.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 8).isActive = true
+        self.imageOfNews.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -8).isActive = true
+        self.imageOfNews.heightAnchor.constraint(equalTo: self.imageOfNews.widthAnchor, multiplier: 0.6).isActive = true
+        
+        self.descriptionLabel.topAnchor.constraint(equalTo: self.imageOfNews.bottomAnchor, constant: 16).isActive = true
+        self.descriptionLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 8).isActive = true
+        self.descriptionLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -8).isActive = true
+        
+        self.dateLabel.topAnchor.constraint(equalTo: self.descriptionLabel.bottomAnchor, constant: 8).isActive = true
+        self.dateLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 8).isActive = true
+        self.dateLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -8).isActive = true
+        self.dateLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -8).isActive = true
+
+    }
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: "tableViewCell")
+        
+        addViews()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

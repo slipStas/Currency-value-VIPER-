@@ -14,13 +14,29 @@ protocol MainViewProtocol: class {
 
 class MainViewController: UIViewController {
     
-    @IBOutlet weak var newsTableView: UITableView!
+//    @IBOutlet weak var newsTableView: UITableView!
     
     var presenter: MainPresenterProtocol!
     var configurator: MainConfiguratorProtocol = MainConfigurator()
     var news: News?
     let refreshControl = UIRefreshControl()
     
+    //MARK: - UIViews
+    let infoButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "info.circle"), for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
+    
+    let newsTableView: UITableView = {
+        let table = UITableView()
+        table.register(MainTableViewCell.self, forCellReuseIdentifier: "news table cell")
+        table.translatesAutoresizingMaskIntoConstraints = false
+        
+        return table
+    }()
     
     //MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -28,16 +44,39 @@ class MainViewController: UIViewController {
         configurator.configure(with: self)
         presenter.configureView(completionHandler: {})
 
+        self.view.backgroundColor = .white
+        addViews()
         newsTableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshNewsData), for: .valueChanged)
-
+        self.infoButton.addTarget(self, action: #selector(infoButtonPressed), for: .touchUpInside)
         newsTableView.dataSource = self
         newsTableView.delegate = self
     }
     
-    @IBAction func infoButtonPressed(_ sender: Any) {
+    @objc func infoButtonPressed() {
         presenter.infoButtonClicked()
     }
+    
+    func addViews() {
+        view.addSubview(infoButton)
+        view.addSubview(newsTableView)
+        
+        infoButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 44).isActive = true
+        infoButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true
+        infoButton.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        infoButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        newsTableView.topAnchor.constraint(equalTo: self.infoButton.bottomAnchor, constant: 8).isActive = true
+        newsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        newsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        newsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+
+        
+    }
+    
+//    @IBAction func infoButtonPressed(_ sender: Any) {
+//        presenter.infoButtonClicked()
+//    }
 }
 
 extension MainViewController: MainViewProtocol {
