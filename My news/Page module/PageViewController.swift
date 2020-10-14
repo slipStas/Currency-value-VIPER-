@@ -14,14 +14,23 @@ class PageViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .brown
-
-        addViewControllers()
+        view.backgroundColor = .lightGray
                 
         setViewControllers([self.newsViewControllers[0]], direction: .forward, animated: true, completion: nil)
         
         self.dataSource = self
         self.delegate = self
+    }
+    
+    override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
+        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+        addViewControllers()
+                
+        setViewControllers([self.newsViewControllers[0]], direction: .forward, animated: true, completion: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func addViewControllers() {
