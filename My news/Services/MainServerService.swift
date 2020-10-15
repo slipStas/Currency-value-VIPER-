@@ -9,7 +9,8 @@ import UIKit
 
 protocol MainServerServiceProtocol: class {
     var news: News? {get set}
-    func loadNews(with category: CategoriesOfRequest, completionHandler: @escaping() -> ())
+    func loadHeadlineNews(with category: CategoriesOfRequest, completionHandler: @escaping() -> ())
+    func loadEverythingNews(with searching: String, completionHandler: @escaping() -> ())
     func loadImagesNews(completionHandler: @escaping() -> ())
     func openUrl(with urlString: String)
 }
@@ -19,7 +20,34 @@ class MainServerService: MainServerServiceProtocol {
     private let apiKey = "28d2250865c9496296dd09e61ef40ddc"
     var news: News?
     
-    func loadNews(with category: CategoriesOfRequest, completionHandler: @escaping() -> ()) {
+    func loadEverythingNews(with searching: String, completionHandler: @escaping () -> ()) {
+        DispatchQueue.main.async {
+            let configurator = URLSessionConfiguration.default
+            let session = URLSession(configuration: configurator)
+            var urlConstructor = URLComponents()
+            
+            urlConstructor.scheme = "https"
+            urlConstructor.host = "newsapi.org"
+            urlConstructor.path = "/v2/everything"
+            urlConstructor.queryItems = [
+                URLQueryItem(name: "q", value: "searching"),
+                URLQueryItem(name: "apiKey", value: self.apiKey),
+                URLQueryItem(name: "pageSize", value: "35")]
+            
+            guard let url = urlConstructor.url else {return}
+            
+            session.dataTask(with: url) { (data, response, error) in
+                guard let data = data else {return}
+                
+                let news = try? JSONDecoder().decode(News.self, from: data)
+                
+                self.news = news
+                completionHandler()
+            }.resume()
+        }
+    }
+    
+    func loadHeadlineNews(with category: CategoriesOfRequest, completionHandler: @escaping() -> ()) {
         DispatchQueue.main.async {
             let configurator = URLSessionConfiguration.default
             let session = URLSession(configuration: configurator)
@@ -32,7 +60,7 @@ class MainServerService: MainServerServiceProtocol {
                 URLQueryItem(name: "country", value: "ru"),
                 URLQueryItem(name: "category", value: category.rawValue),
                 URLQueryItem(name: "apiKey", value: self.apiKey),
-                URLQueryItem(name: "pageSize", value: "15")]
+                URLQueryItem(name: "pageSize", value: "35")]
             
             guard let url = urlConstructor.url else {return}
             

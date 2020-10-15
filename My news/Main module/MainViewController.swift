@@ -52,6 +52,7 @@ class MainViewController: UIViewController {
     let newsTableView: UITableView = {
         let table = UITableView()
         table.register(MainTableViewCell.self, forCellReuseIdentifier: "news table cell")
+        table.separatorStyle = .none
         table.translatesAutoresizingMaskIntoConstraints = false
         
         return table
@@ -60,7 +61,6 @@ class MainViewController: UIViewController {
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         categoryLabel.text = categoryTextChangeToRU(englishText: categoryOfRequest)
         configurator.configure(with: self)
         presenter.configureView(with: self.categoryOfRequest, completionHandler: {})
@@ -69,6 +69,7 @@ class MainViewController: UIViewController {
         newsTableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshNewsData), for: .valueChanged)
         self.infoButton.addTarget(self, action: #selector(infoButtonPressed), for: .touchUpInside)
+        
         newsTableView.dataSource = self
         newsTableView.delegate = self
     }
@@ -107,10 +108,11 @@ class MainViewController: UIViewController {
     }
     
     func addViews() {
+        
         view.addSubview(infoButton)
         view.addSubview(newsTableView)
         view.addSubview(categoryLabel)
-        
+                
         infoButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 44).isActive = true
         infoButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true
         infoButton.widthAnchor.constraint(equalToConstant: 20).isActive = true

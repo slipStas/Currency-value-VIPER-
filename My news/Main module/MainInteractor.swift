@@ -32,7 +32,7 @@ class MainInteractor: MainInteractorProtocol {
     }
 
     func loadNews(with category: CategoriesOfRequest, completionHandler: @escaping() -> ()) {
-        self.mainService.loadNews(with: category) { 
+        self.mainService.loadHeadlineNews(with: category) { 
             completionHandler()
         }
     }
