@@ -7,13 +7,21 @@
 
 import UIKit
 
-class PageViewController: UIPageViewController {
+protocol PageViewProtocol: class {
+    var newsViewControllers: [MainViewController] {get set}
+}
+
+class PageViewController: UIPageViewController, PageViewProtocol {
     
     var newsViewControllers: [MainViewController] = []
-    
+    var presenter: PagePresenterProtocol!
+    var configurator: PageConfiguratorProtocol = PageConfigurator()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.titleView = UISearchBar()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "info.circle"), style: .plain, target: self, action: #selector(tapInfoButton))
         view.backgroundColor = .systemBackground
         setViewControllers([self.newsViewControllers[0]], direction: .forward, animated: true, completion: nil)
         
@@ -23,8 +31,9 @@ class PageViewController: UIPageViewController {
     
     override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-        addViewControllers()
-                
+        configurator.configure(with: self)
+        presenter.configureView {}
+
         setViewControllers([self.newsViewControllers[0]], direction: .forward, animated: true, completion: nil)
     }
     
@@ -32,16 +41,8 @@ class PageViewController: UIPageViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func addViewControllers() {
-        let firstVC = MainViewController(categoryOfRequest: .general)
-        let secondVC = MainViewController(categoryOfRequest: .business)
-        let thirdVC = MainViewController(categoryOfRequest: .entertainment)
-        let foursVC = MainViewController(categoryOfRequest: .health)
-        let fivethVC = MainViewController(categoryOfRequest: .science)
-        let sixthVC = MainViewController(categoryOfRequest: .sports)
-        let seventhVC = MainViewController(categoryOfRequest: .technology)
-
-        newsViewControllers.append(contentsOf: [firstVC, secondVC, thirdVC, foursVC, fivethVC, sixthVC, seventhVC])
+    @objc func tapInfoButton() {
+        presenter.infoButtonClicked()
     }
 }
 

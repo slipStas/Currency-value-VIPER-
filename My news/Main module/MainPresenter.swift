@@ -11,7 +11,6 @@ protocol MainPresenterProtocol: class {
     
     var router: MainRouterProtocol! {get set}
     func configureView(with category: CategoriesOfRequest, completionHandler: @escaping() -> ())
-    func infoButtonClicked()
     func goToSite(with urlString: String)
 }
 
@@ -23,10 +22,6 @@ class MainPresenter: MainPresenterProtocol {
     
     required init(view: MainViewProtocol) {
         self.view = view
-    }
-    
-    func infoButtonClicked() {
-        router.presentAboutController()
     }
     
     func configureView(with category: CategoriesOfRequest, completionHandler: @escaping() -> ()) {
@@ -44,6 +39,5 @@ class MainPresenter: MainPresenterProtocol {
         
         interactor.openUrl(with: urlString)
     }
-    
 }
 

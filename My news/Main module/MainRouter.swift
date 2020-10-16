@@ -9,7 +9,6 @@ import UIKit
 
 protocol MainRouterProtocol: class {
     
-    func presentAboutController()
 }
 
 class MainRouter: MainRouterProtocol {
@@ -20,10 +19,4 @@ class MainRouter: MainRouterProtocol {
         self.viewController = viewController
     }
     
-    func presentAboutController() {
-        
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let navigationVC = AboutViewController() //storyboard.instantiateViewController(withIdentifier: "AboutViewController") as! AboutViewController
-        viewController.present(navigationVC, animated: true, completion: nil)
-    }
 }

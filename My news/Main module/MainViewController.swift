@@ -33,14 +33,6 @@ class MainViewController: UIViewController {
     let refreshControl = UIRefreshControl()
     
     //MARK: - declare views
-    let infoButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "info.circle"), for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
-        return button
-    }()
-    
     let categoryLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20)
@@ -68,7 +60,6 @@ class MainViewController: UIViewController {
         addViews()
         newsTableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshNewsData), for: .valueChanged)
-        self.infoButton.addTarget(self, action: #selector(infoButtonPressed), for: .touchUpInside)
         
         newsTableView.dataSource = self
         newsTableView.delegate = self
@@ -84,10 +75,6 @@ class MainViewController: UIViewController {
     }
     
     //MARK: - declare methods
-    @objc func infoButtonPressed() {
-        presenter.infoButtonClicked()
-    }
-    
     func categoryTextChangeToRU(englishText: CategoriesOfRequest) -> String {
         switch englishText {
         case .business:
@@ -109,20 +96,14 @@ class MainViewController: UIViewController {
     
     func addViews() {
         
-        view.addSubview(infoButton)
         view.addSubview(newsTableView)
         view.addSubview(categoryLabel)
-                
-        infoButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 44).isActive = true
-        infoButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true
-        infoButton.widthAnchor.constraint(equalToConstant: 20).isActive = true
-        infoButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
-        categoryLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 44).isActive = true
+        categoryLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 110).isActive = true
         categoryLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         categoryLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
 
-        newsTableView.topAnchor.constraint(equalTo: self.infoButton.bottomAnchor, constant: 8).isActive = true
+        newsTableView.topAnchor.constraint(equalTo: self.categoryLabel.bottomAnchor, constant: 8).isActive = true
         newsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         newsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         newsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true

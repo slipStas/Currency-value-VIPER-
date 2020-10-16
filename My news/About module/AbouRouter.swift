@@ -8,8 +8,8 @@
 import Foundation
 
 protocol AboutRouterProtocol: class {
-    func closeCurrentViewController()
     
+    func closeCurrentViewController()
 }
 
 class AboutRouter: AboutRouterProtocol {

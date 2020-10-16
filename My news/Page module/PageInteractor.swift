@@ -6,3 +6,18 @@
 //
 
 import Foundation
+
+protocol PageInteractorProtocol: class {
+    
+}
+
+class PageInteractor: PageInteractorProtocol {
+    
+    weak var presenter: PagePresenterProtocol!
+    
+    required init(presenter: PagePresenterProtocol) {
+        self.presenter = presenter
+    }
+    
+    
+}
