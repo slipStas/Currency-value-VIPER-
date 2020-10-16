@@ -30,7 +30,7 @@ class MainServerService: MainServerServiceProtocol {
             urlConstructor.host = "newsapi.org"
             urlConstructor.path = "/v2/everything"
             urlConstructor.queryItems = [
-                URLQueryItem(name: "q", value: "searching"),
+                URLQueryItem(name: "q", value: searching),
                 URLQueryItem(name: "apiKey", value: self.apiKey),
                 URLQueryItem(name: "pageSize", value: "35")]
             
@@ -52,6 +52,7 @@ class MainServerService: MainServerServiceProtocol {
             let configurator = URLSessionConfiguration.default
             let session = URLSession(configuration: configurator)
             var urlConstructor = URLComponents()
+//            guard let category = category else {return}
             
             urlConstructor.scheme = "https"
             urlConstructor.host = "newsapi.org"

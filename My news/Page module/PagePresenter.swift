@@ -10,7 +10,8 @@ import Foundation
 protocol PagePresenterProtocol: class {
     
     var router: PageRouterProtocol! {get set}
-    func configureView(completionHandler: @escaping() -> ())
+    func configureViewWithHeadliners(completionHandler: @escaping() -> ())
+    func configureViewWithEverything(searchTex: String?, completionHandler: @escaping() -> ())
     func infoButtonClicked()
 }
 
@@ -28,18 +29,26 @@ class PagePresenter: PagePresenterProtocol {
         router.presentAboutController()
     }
     
-    func configureView(completionHandler: @escaping () -> ()) {
+    func configureViewWithHeadliners(completionHandler: @escaping () -> ()) {
         
-        let firstVC = MainViewController(categoryOfRequest: .general)
-        let secondVC = MainViewController(categoryOfRequest: .business)
-        let thirdVC = MainViewController(categoryOfRequest: .entertainment)
-        let foursVC = MainViewController(categoryOfRequest: .health)
-        let fivethVC = MainViewController(categoryOfRequest: .science)
-        let sixthVC = MainViewController(categoryOfRequest: .sports)
-        let seventhVC = MainViewController(categoryOfRequest: .technology)
+        let firstVC = MainViewController(categoryOfRequest: .general, searchText: nil)
+        let secondVC = MainViewController(categoryOfRequest: .business, searchText: nil)
+        let thirdVC = MainViewController(categoryOfRequest: .entertainment, searchText: nil)
+        let foursVC = MainViewController(categoryOfRequest: .health, searchText: nil)
+        let fivethVC = MainViewController(categoryOfRequest: .science, searchText: nil)
+        let sixthVC = MainViewController(categoryOfRequest: .sports, searchText: nil)
+        let seventhVC = MainViewController(categoryOfRequest: .technology, searchText: nil)
 
         view.newsViewControllers.append(contentsOf: [firstVC, secondVC, thirdVC, foursVC, fivethVC, sixthVC, seventhVC])
         
         completionHandler()
     }
+    
+    func configureViewWithEverything(searchTex: String?, completionHandler: @escaping () -> ()) {
+        
+        let searchVC = MainViewController(categoryOfRequest: nil, searchText: searchTex)
+        view.newsViewControllers.insert(searchVC, at: 0)
+        completionHandler()
+    }
+    
 }

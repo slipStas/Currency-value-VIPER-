@@ -9,7 +9,9 @@ import UIKit
 
 protocol MainViewProtocol: class {
     
-    var categoryOfRequest: CategoriesOfRequest {get set}
+    var categoryOfRequest: CategoriesOfRequest? {get set}
+    var searchText: String? {get set}
+
     func reloadData()
     func show(news: News?)
 }
@@ -26,7 +28,8 @@ enum CategoriesOfRequest: String {
 
 class MainViewController: UIViewController {
     
-    var categoryOfRequest: CategoriesOfRequest
+    var categoryOfRequest: CategoriesOfRequest?
+    var searchText: String?
     var presenter: MainPresenterProtocol!
     var configurator: MainConfiguratorProtocol = MainConfigurator()
     var news: News?
@@ -53,10 +56,17 @@ class MainViewController: UIViewController {
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        categoryLabel.text = categoryTextChangeToRU(englishText: categoryOfRequest)
+        
         configurator.configure(with: self)
-        presenter.configureView(with: self.categoryOfRequest, completionHandler: {})
-
+        
+        if let category = categoryOfRequest {
+            categoryLabel.text = categoryTextChangeToRU(englishText: category)
+            presenter.configureView(with: category, completionHandler: {})
+        } else {
+            categoryLabel.text = searchText
+            presenter.configureViewWith(searchText: self.searchText!, completionHandler: {})
+        }
+        
         addViews()
         newsTableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshNewsData), for: .valueChanged)
@@ -65,8 +75,9 @@ class MainViewController: UIViewController {
         newsTableView.delegate = self
     }
     
-    init(categoryOfRequest: CategoriesOfRequest) {
+    init(categoryOfRequest: CategoriesOfRequest?, searchText: String?) {
         self.categoryOfRequest = categoryOfRequest
+        self.searchText = searchText
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -114,11 +125,19 @@ class MainViewController: UIViewController {
 extension MainViewController: MainViewProtocol {
     
     @objc func refreshNewsData() {
-        presenter.configureView(with: self.categoryOfRequest, completionHandler: {
-            DispatchQueue.main.async {
-                self.refreshControl.endRefreshing()
+        if self.categoryOfRequest != nil {
+            presenter.configureView(with: self.categoryOfRequest!, completionHandler: {
+                DispatchQueue.main.async {
+                    self.refreshControl.endRefreshing()
+                }
+            })
+        } else {
+            presenter.configureViewWith(searchText: self.searchText!) {
+                DispatchQueue.main.async {
+                    self.refreshControl.endRefreshing()
+                }
             }
-        })
+        }
     }
     
     func show(news: News?) {
