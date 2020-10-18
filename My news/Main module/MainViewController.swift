@@ -110,7 +110,7 @@ class MainViewController: UIViewController {
         view.addSubview(newsTableView)
         view.addSubview(categoryLabel)
         
-        categoryLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 110).isActive = true
+        categoryLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 114).isActive = true
         categoryLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         categoryLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
 
@@ -146,6 +146,10 @@ extension MainViewController: MainViewProtocol {
     
     func reloadData() {
         DispatchQueue.main.async {
+            
+            if self.searchText != nil {
+                self.categoryLabel.text = self.searchText
+            }
             self.newsTableView.reloadData()
         }
     }

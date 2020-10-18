@@ -52,7 +52,6 @@ class MainServerService: MainServerServiceProtocol {
             let configurator = URLSessionConfiguration.default
             let session = URLSession(configuration: configurator)
             var urlConstructor = URLComponents()
-//            guard let category = category else {return}
             
             urlConstructor.scheme = "https"
             urlConstructor.host = "newsapi.org"

@@ -28,6 +28,7 @@ class MainPresenter: MainPresenterProtocol {
     func configureViewWith(searchText: String, completionHandler: @escaping() -> ()) {
         interactor.loadEverythingNews(with: searchText, completionHandler: {
             self.view.show(news: self.interactor.news)
+            self.view.searchText = searchText
             self.view.reloadData()
             completionHandler()
             self.interactor.loadImagesNews(completionHandler: {

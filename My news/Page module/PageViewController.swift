@@ -101,8 +101,15 @@ extension PageViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.searchBar.endEditing(true)
-        self.presenter.configureViewWithEverything(searchTex: self.searchBar.text) {
-            self.setViewControllers([self.newsViewControllers[0]], direction: .forward, animated: true, completion: nil)
+        if self.newsViewControllers.count == 7 {
+            self.presenter.configureViewWithEverything(searchTex: self.searchBar.text) {
+                self.setViewControllers([self.newsViewControllers[0]], direction: .forward, animated: true, completion: nil)
+            }
+        } else {
+            self.newsViewControllers.first?.presenter.configureViewWith(searchText: self.searchBar.text!, completionHandler: {
+                self.newsViewControllers.first?.reloadData()
+                print("reload data")
+            })
         }
     }
 }
