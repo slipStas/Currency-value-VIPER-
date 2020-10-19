@@ -28,7 +28,6 @@ class PageViewController: UIPageViewController, PageViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         navigationItem.titleView = searchBar
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "info.circle"), style: .plain, target: self, action: #selector(tapInfoButton))
         view.backgroundColor = .systemBackground
@@ -103,12 +102,15 @@ extension PageViewController: UISearchBarDelegate {
         self.searchBar.endEditing(true)
         if self.newsViewControllers.count == 7 {
             self.presenter.configureViewWithEverything(searchTex: self.searchBar.text) {
-                self.setViewControllers([self.newsViewControllers[0]], direction: .forward, animated: true, completion: nil)
+                self.setViewControllers([self.newsViewControllers[0]], direction: .reverse, animated: true, completion: nil)
             }
         } else {
             self.newsViewControllers.first?.presenter.configureViewWith(searchText: self.searchBar.text!, completionHandler: {
-                self.newsViewControllers.first?.reloadData()
-                print("reload data")
+                DispatchQueue.main.async {
+                    self.setViewControllers([self.newsViewControllers[0]], direction: .reverse, animated: true, completion: nil)
+                    self.newsViewControllers.first?.reloadData()
+                    print("reload data")
+                }
             })
         }
     }
