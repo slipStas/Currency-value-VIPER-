@@ -27,9 +27,13 @@ class MainPresenter: MainPresenterProtocol {
     }
     func configureViewWith(searchText: String, completionHandler: @escaping() -> ()) {
         interactor.loadEverythingNews(with: searchText, completionHandler: {
+            
             self.view.show(news: self.interactor.news)
             self.view.searchText = searchText
             self.view.reloadData()
+            DispatchQueue.main.async {
+                self.view.newsTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+            }
             completionHandler()
             self.interactor.loadImagesNews(completionHandler: {
                 self.view.reloadData()

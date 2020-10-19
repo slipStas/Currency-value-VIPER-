@@ -11,6 +11,7 @@ protocol MainViewProtocol: class {
     
     var categoryOfRequest: CategoriesOfRequest? {get set}
     var searchText: String? {get set}
+    var newsTableView: UITableView {get set}
 
     func reloadData()
     func show(news: News?)
@@ -26,7 +27,7 @@ enum CategoriesOfRequest: String {
     case technology = "technology"
 }
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, MainViewProtocol {
     
     var categoryOfRequest: CategoriesOfRequest?
     var searchText: String?
@@ -44,7 +45,7 @@ class MainViewController: UIViewController {
         return label
     }()
     
-    let newsTableView: UITableView = {
+    var newsTableView: UITableView = {
         let table = UITableView()
         table.register(MainTableViewCell.self, forCellReuseIdentifier: "news table cell")
         table.separatorStyle = .none
@@ -119,10 +120,19 @@ class MainViewController: UIViewController {
         newsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         newsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
     }
+    
+    func reloadData() {
+        DispatchQueue.main.async {
+            if self.searchText != nil {
+                self.categoryLabel.text = self.searchText
+            }
+            self.newsTableView.reloadData()
+        }
+    }
 }
 
 //MARK: - extensions
-extension MainViewController: MainViewProtocol {
+extension MainViewController {
     
     @objc func refreshNewsData() {
         if self.categoryOfRequest != nil {
@@ -144,15 +154,7 @@ extension MainViewController: MainViewProtocol {
         self.news = news
     }
     
-    func reloadData() {
-        DispatchQueue.main.async {
-            
-            if self.searchText != nil {
-                self.categoryLabel.text = self.searchText
-            }
-            self.newsTableView.reloadData()
-        }
-    }
+    
 }
 
 extension MainViewController: UITableViewDelegate {
