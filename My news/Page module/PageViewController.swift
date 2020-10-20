@@ -108,9 +108,11 @@ extension PageViewController: UISearchBarDelegate {
             self.newsViewControllers.first?.presenter.configureViewWith(searchText: self.searchBar.text!, completionHandler: {
                 DispatchQueue.main.async {
                     self.setViewControllers([self.newsViewControllers[0]], direction: .reverse, animated: true, completion: nil)
+                    print("set 0 VC")
                     self.newsViewControllers.first?.reloadData()
                     print("reload data")
                 }
+                
             })
         }
     }

@@ -16,7 +16,6 @@ protocol MainPresenterProtocol: class {
 }
 
 class MainPresenter: MainPresenterProtocol {
-   
     
     weak var view: MainViewProtocol!
     var interactor: MainInteractorProtocol!
@@ -33,8 +32,10 @@ class MainPresenter: MainPresenterProtocol {
             self.view.reloadData()
             DispatchQueue.main.async {
                 self.view.newsTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+                print("scroll to top")
             }
             completionHandler()
+            
             self.interactor.loadImagesNews(completionHandler: {
                 self.view.reloadData()
             })

@@ -127,6 +127,7 @@ class MainViewController: UIViewController, MainViewProtocol {
                 self.categoryLabel.text = self.searchText
             }
             self.newsTableView.reloadData()
+//            self.newsTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
         }
     }
 }
