@@ -10,6 +10,8 @@ import Foundation
 protocol MainPresenterProtocol: class {
     
     var router: MainRouterProtocol! {get set}
+    var interactor: MainInteractorProtocol! {get set}
+    
     func configureView(with category: CategoriesOfRequest, completionHandler: @escaping() -> ())
     func configureViewWith(searchText: String, completionHandler: @escaping() -> ())
     func goToSite(with urlString: String)
@@ -24,6 +26,7 @@ class MainPresenter: MainPresenterProtocol {
     required init(view: MainViewProtocol) {
         self.view = view
     }
+    
     func configureViewWith(searchText: String, completionHandler: @escaping() -> ()) {
         interactor.loadEverythingNews(with: searchText, completionHandler: {
             
